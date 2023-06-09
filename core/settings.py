@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'routes',
     'ships',
     'schedules',
-    'frontend',
+    'frontend.apps.FrontendConfig',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
