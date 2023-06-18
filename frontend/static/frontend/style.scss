@@ -1,0 +1,68 @@
+body {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+ul, li, a {
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+.containers_list {
+    margin: 6rem auto;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1440px;
+}
+
+.container{
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #3ba094;
+    color: rgb(211, 203, 203);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 1s;
+    &:hover {
+        background-color: #49c5b6;
+        color: white;
+    }
+}
+
+.delete_btn {
+    font-size: 1.5rem;
+    background-color: #DF6C4F;
+    padding: 10px 30px;
+    color: white;
+    border: #DF6C4F 1px solid;
+    border-radius: 20px;
+    transition: 1s;
+    cursor: pointer;
+    &:hover {
+        background-color: white;
+        color: #DF6C4F;
+    }
+}
+
+h2 {
+    font-size: 4rem;
+    margin:  0 auto;
+    text-align: center;
+}
+.container_done {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.container__control {
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+}

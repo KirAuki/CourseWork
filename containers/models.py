@@ -7,11 +7,11 @@ class Container(models.Model):
     size = models.CharField(verbose_name='Размеры контейнера',max_length=20)
     weight = models.FloatField(verbose_name='Вес контейнера',)
     date = models.DateField(verbose_name='Дата принятия', auto_now_add=True, max_length=50)
-
+    done = models.BooleanField(verbose_name='Доставлено',default= False)
     def __str__(self):
         return self.name
     
 
     class Meta:
         verbose_name = "Контейнер"
-        verbose_name_plural = "Контейнера"
+        verbose_name_plural = "Контейнера" 
