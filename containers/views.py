@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
 from containers.serializers import ContainersSerializer
 from containers.models import Container
 from .forms import AddContainerForm
@@ -7,6 +8,8 @@ from django.shortcuts import redirect ,render
 class ContainersViewSet(ModelViewSet):
     queryset = Container.objects.all()
     serializer_class = ContainersSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name', 'date']
 
 
 def add_container(request):
