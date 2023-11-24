@@ -21,7 +21,7 @@ class List extends Component {
                         {this.props.containers.map(container => ( 
                             <li className='container' key={container.id}>
                                 <h3>{container.name}</h3>
-                                <p>{container.schedule_data.name}</p>
+                                <p>{container.schedule.name}</p>
                                 <p>{container.size}</p>
                                 <p>{container.date}</p>
                                 <div className='container__control'>

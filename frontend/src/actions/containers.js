@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_CONTAINERS_LIST,DELETE_CONTAINER,TOGGLE_CONTAINER} from "../actions/types"
+import {GET_CONTAINERS_LIST,DELETE_CONTAINER,TOGGLE_CONTAINER, CREATE_CONTAINER , GET_SCHEDULES} from "../actions/types"
 
 axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -37,4 +37,24 @@ export const toggleContainer = (container) => dispatch => {
                 payload: result.data
             });
         }).catch(error => console.log(error));
+};
+
+export const createContainer = (container) => dispatch => {
+    axios.post('api/containers/', container)
+        .then(result => {
+            dispatch({
+                type: CREATE_CONTAINER,
+                payload: result.data
+            });
+        }).catch(error => console.log(error));
+};
+
+export const getSchedules = () => (dispatch) => {
+    axios.get("api/schedules/")
+        .then((result) => {
+            dispatch({
+                type: GET_SCHEDULES,
+                payload: result.data
+            });
+      }).catch((error) => console.log(error));
 };

@@ -8,7 +8,6 @@ class Schedule(models.Model):
     ship = models.ManyToManyField(Ship,verbose_name="Название судна")
     departure_date = models.DateField(verbose_name="День отбытия")
     arrival_date = models.DateField(verbose_name="День прибытия")
-    
 
     def ships_names(self):
         return " %s" % (", ".join([Ship.name for Ship in self.ship.all()]))
@@ -20,3 +19,4 @@ class Schedule(models.Model):
         verbose_name = "Расписание"
         verbose_name_plural = "Расписания"
         
+    

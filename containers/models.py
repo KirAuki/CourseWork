@@ -1,5 +1,6 @@
 from django.db import models
 from schedules.models import Schedule
+from django.contrib import admin
 
 class Container(models.Model):
     name = models.CharField(verbose_name='Название контейнера',max_length=100, unique=True)
@@ -11,6 +12,9 @@ class Container(models.Model):
     def __str__(self):
         return self.name
     
+    @admin.display(description='Расписание')
+    def schedule_name(self):
+        return self.schedule.name
 
     class Meta:
         verbose_name = "Контейнер"

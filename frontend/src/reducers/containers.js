@@ -1,7 +1,8 @@
-import {GET_CONTAINERS_LIST,DELETE_CONTAINER,TOGGLE_CONTAINER} from "../actions/types";
+import {GET_CONTAINERS_LIST,DELETE_CONTAINER,TOGGLE_CONTAINER, CREATE_CONTAINER,GET_SCHEDULES} from "../actions/types";
 
 const initialState = {
-    containers: []
+    containers: [],
+    schedules: []
 };
 
 export default function (state = initialState, action) {
@@ -20,6 +21,16 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 containers: [...state.containers]
+            };
+            case GET_SCHEDULES:
+            return {
+                ...state,
+                schedules: action.payload
+            };
+            case CREATE_CONTAINER:
+            return {
+                ...state,
+                containers: [...state.containers, action.payload]
             };
         default:
             return state;

@@ -11,7 +11,7 @@ class UsersViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UsersSerializer
 
-    @action(methods=['POST'], detail=False,url_path='register')
+    @action(methods=['POST'], detail=True,url_path='register')
     def register(self,request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid( raise_exception=True)

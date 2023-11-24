@@ -6,15 +6,18 @@ from routes.models import Route
 class ShipsSerializerForSchedules(serializers.ModelSerializer):
     class Meta:
         model = Ship
-        exclude = ['capacity','status']
+        fields = '__all__'
 class RoutesSerializerForSchedules(serializers.ModelSerializer):
     class Meta:
         model = Route
-        fields = ['name']
+        fields = '__all__'
 
 class SchedulesSerializer(serializers.ModelSerializer):
-    ship_data = ShipsSerializerForSchedules(source='ship',read_only=True, many=True)
+    ship_data = ShipsSerializerForSchedules(source='ship', many=True)
     route_data = RoutesSerializerForSchedules(source='route')
     class Meta:
         model = Schedule
         exclude = ['ship','route']
+
+    def create(self, validated_data):
+        return Schedule.objects.create(**validated_data)

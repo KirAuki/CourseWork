@@ -8,6 +8,5 @@ class PortAdmin(admin.ModelAdmin):
     list_display_links = ('id','name')
     search_fields = ('id','name','country', 'city')
 
-
 admin.site.register(DeparturePort,PortAdmin)
 admin.site.register(ArrivalPort,PortAdmin)
