@@ -1,6 +1,7 @@
 from django.db import models
 from schedules.models import Schedule
 from django.contrib import admin
+from simple_history.models import HistoricalRecords
 
 class Container(models.Model):
     name = models.CharField(verbose_name='Название контейнера',max_length=100, unique=True)
@@ -9,6 +10,7 @@ class Container(models.Model):
     weight = models.FloatField(verbose_name='Вес контейнера',)
     date = models.DateField(verbose_name='Дата принятия', auto_now_add=True, max_length=50)
     done = models.BooleanField(verbose_name='Доставлено',default= False)
+    history = HistoricalRecords()
     def __str__(self):
         return self.name
     

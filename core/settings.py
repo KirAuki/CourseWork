@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'schedules',
     'frontend.apps.FrontendConfig',
     "debug_toolbar",
-    'django_filters'
+    'django_filters',
+    'simple_history',
+    'import_export',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
@@ -62,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'

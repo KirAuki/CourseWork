@@ -40,8 +40,8 @@ class List extends Component {
 }
 
 
-const mapStateToProps = (state)=> ({
-    containers: state.containers.containers
+const mapStateToProps = (state)=> ({ 
+    containers: state.containers.containers || []
 });
 
 export default connect(mapStateToProps, {getContainers, delContainer, toggleContainer})(List);
