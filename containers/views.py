@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from containers.serializers import ContainersSerializer
 from containers.models import Container
 from .forms import AddContainerForm
@@ -9,8 +10,9 @@ from django.shortcuts import redirect ,render
 class ContainersViewSet(ModelViewSet):
     queryset = Container.objects.filter((Q(size='12x2x2.5') | Q(weight=1250.0)) & ~Q(done=True))
     serializer_class = ContainersSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     filterset_fields = ['name', 'done']
+    ordering_fields = ['weight']
 
 
 def add_container(request):
