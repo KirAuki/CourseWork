@@ -11,6 +11,7 @@ class Container(models.Model):
     date = models.DateField(verbose_name='Дата принятия', auto_now_add=True, max_length=50)
     done = models.BooleanField(verbose_name='Доставлено',default= False)
     history = HistoricalRecords()
+    
     def __str__(self):
         return self.name
     

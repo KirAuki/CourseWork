@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'ships',
     'schedules',
     'frontend.apps.FrontendConfig',
-    "debug_toolbar",
+    'debug_toolbar',
     'django_filters',
     'simple_history',
     'import_export',

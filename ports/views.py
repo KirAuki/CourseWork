@@ -4,8 +4,7 @@ from ports.models import DeparturePort, ArrivalPort
 from django.db.models import Q
 
 class DeparturePortsViewSet(ModelViewSet):
-    queryset = DeparturePort.objects.filter(
-    Q(name__startswith='A') | Q(country__startswith='A'))
+    queryset = DeparturePort.objects.all()
     serializer_class = DeparturePortsSerializer
 
 class ArrivalPortsViewSet(ModelViewSet):
