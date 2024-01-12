@@ -16,9 +16,12 @@ class Container(models.Model):
         return self.name
     
     @admin.display(description='Расписание')
-    def schedule_name(self):
+    def schedule_name(self):    
         return self.schedule.name
 
     class Meta:
         verbose_name = "Контейнер"
         verbose_name_plural = "Контейнера" 
+
+
+

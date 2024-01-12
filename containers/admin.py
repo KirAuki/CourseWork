@@ -19,6 +19,8 @@ class ContainerResource(resources.ModelResource):
     def dehydrate_item_weight(self, container):
         return f'{container.weight} kg'
 
+    
+    
     def get_export_headers(self):
         headers = []
         for field in self.get_fields():

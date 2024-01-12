@@ -8,7 +8,8 @@ from django.db.models import Q
 from django.shortcuts import redirect ,render
 
 class ContainersViewSet(ModelViewSet):
-    queryset = Container.objects.filter((Q(size='12x2x2.5') | Q(weight=1250.0)) & ~Q(done=True))
+    # queryset = Container.objects.filter((Q(size='12x2x2.5') | Q(weight=1250.0)) & ~Q(done=True))
+    queryset = Container.objects.all()
     serializer_class = ContainersSerializer
     filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     filterset_fields = ['name', 'done']
